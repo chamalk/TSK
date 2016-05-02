@@ -79,7 +79,7 @@ include_once '../../model/dataAccess/HomeModel.php'
                             <div class="item active">
                                 <img src="../../resources/dist/img/homeSlide_1.jpg" alt="First slide">
                                 <div class="carousel-caption">
-                                    The safest roller door manufacture in Srilanka.
+                                    The safest roller door manufacture in Srilanka....
                                 </div>
                             </div>
                             <div class="item">
