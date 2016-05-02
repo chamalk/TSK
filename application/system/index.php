@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Precencia Music Academy</title>
+    <title>TSK Engineering</title>
     <link rel="shortcut icon" type="image/x-icon" href="resources/dist/img/favicon.ico" />
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="resources/plugins/iCheck/square/blue.css">
 
 </head>
-<body background="resources/dist/img/bg1.jpg" >
+<body background="resources/dist/img/loginPage.jpg" >
 <div class="login-box">
     <div class="login-logo">
         <a href="index.php"><b>TSK</b><br> Engineering</a>

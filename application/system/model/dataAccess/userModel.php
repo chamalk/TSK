@@ -1,10 +1,9 @@
 <?php
 include_once 'DBConnection.php';
-
 function get_user_name($id)
 {
     $db_conn=DBConnection::get_database_connection(); // get the db connection
-    $stmt = $db_conn->prepare("SELECT first_name,last_name FROM staff where id = ?");
+    $stmt = $db_conn->prepare("SELECT name FROM staff where id = ?");
     $stmt->bind_param("s", $id);
     // execute the query
     $stmt->execute() ;
@@ -12,12 +11,12 @@ function get_user_name($id)
     {
         echo "Error " . $stmt->error;
     }
+
     if($result->num_rows!=0)
     {
         $row=$result->fetch_assoc();
-        $first_name=$row["first_name"];
-        $last_name=$row["last_name"];
-        return $first_name." ".$last_name ;
+        $name=$row["name"];
+        return $name ;
     }
     $stmt->close();
     DBConnection::close_database_connection($db_conn);

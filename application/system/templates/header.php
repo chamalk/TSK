@@ -1,7 +1,7 @@
 <?php
 include_once '../../model/dataAccess/userModel.php';
 session_start();
-$userID='fdsafsfsa';
+$userID='C001';
 ?>
 
 <header class="main-header">
@@ -24,7 +24,7 @@ $userID='fdsafsfsa';
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <img src="../../resources/dist/img/user.png" class="user-image" alt="User Image">
-            <span class="hidden-xs"><?php echo 'UserName'?></span>
+            <span class="hidden-xs"><?php echo get_user_name($userID)?></span>
           </a>
           <ul class="dropdown-menu">
             <!-- User image -->
