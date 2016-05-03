@@ -8,11 +8,21 @@
  */
 class Customer
 {
+    private $ID;
     private $name;
     private $conNo;
     private $address;
     private $emailAddress;
 
+
+    public function set_ID($value)
+    {
+        $this->ID=$value;
+    }
+    public function get_ID()
+    {
+        return $this->ID;
+    }
 
     public function set_name($value)
     {

@@ -7,7 +7,7 @@
 include '../../templates/header.php';
 include '../../templates/clerkSidebar.php';
 ?>
-<?php include '../../model/dataAccess/orderListModel.php'; ?>
+<?php include '../../model/dataAccess/orderModel.php'; ?>
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->

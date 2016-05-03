@@ -3,10 +3,10 @@
     <?php include '../../templates/css.php'; ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<?php
-//error_reporting(E_ERROR);
-include '../../templates/header.php'; ?>
-<?php include '../../templates/customerSidebar.php'; ?>
+<?php include '../../templates/header.php';
+include '../../templates/customerSidebar.php';
+include '../../model/dataAccess/customerProfileModel.php' ?>
+<?php $userID = 2; ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -34,28 +34,29 @@ include '../../templates/header.php'; ?>
                         <h3 class="box-title"> </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
+                        <?php $detail = get_customer_details(2) ?>
                         <strong><i class="fa fa-book margin-r-5"></i>  Name</strong>
-                        <p class="text-muted">Chamal Kuruppu</p>
+                        <p class="text-muted"><?php echo $detail[1]?></p>
 
                         <hr>
 
                         <strong><i class="fa fa-map-marker margin-r-5"></i> Customer ID</strong>
-                        <p class="text-muted"> 130315A</p>
+                        <p class="text-muted"><?php echo $detail[0]?></p>
 
                         <hr>
 
                         <strong><i class="fa fa-map-marker margin-r-5"></i> Contact Number</strong>
-                        <p class="text-muted"> 0718047277</p>
+                        <p class="text-muted"><?php echo $detail[2]?></p>
 
                         <hr>
 
                         <strong><i class="fa fa-map-marker margin-r-5"></i> Home Address</strong>
-                        <p class="text-muted"> No.50, Dalugama, Kelaniya</p>
+                        <p class="text-muted"><?php echo $detail[3]?></p>
 
                         <hr>
 
                         <strong><i class="fa fa-map-marker margin-r-5"></i> Email</strong>
-                        <p class="text-muted"> chamalkuruppu.13@cse.mrt.ac.lk</p>
+                        <p class="text-muted"><?php echo $detail[4]?>k</p>
 
                         <!-- Edit profile Button-->
                         <a href="editCustomerProfile.php" class="btn btn-primary btn-block"><b>Edit My Profile</b></a>

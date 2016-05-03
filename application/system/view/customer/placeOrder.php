@@ -4,8 +4,10 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <?php
-include '../../templates/header.php'; ?>
-<?php include '../../templates/customerSidebar.php'; ?>
+include '../../templates/header.php';
+include '../../templates/customerSidebar.php';
+?>
+<?php $customerID = 1 ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -32,8 +34,8 @@ include '../../templates/header.php'; ?>
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title"> Add Details</h3>
-                        <p class="text-muted"> Customer ID - </p>
-                        <p class="text-muted"> Customer Name- </p>
+                        <p class="text-muted"> Customer ID - <?php echo $customerID ?> </p>
+                        <p class="text-muted"> Customer Name- <?php echo get_customer_name($customerID) ?> </p>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <form action="../../controller/placeOrderController.php" method="post">
@@ -45,7 +47,7 @@ include '../../templates/header.php'; ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="place"> Directions to the location</label>
-                                    <input type="text" class="form-control" name="location" placeholder="Enter new name">
+                                    <input type="text" class="form-control" name="directions" placeholder="Enter new name">
                                 </div>
                             </div>
                             <div class="box-footer">

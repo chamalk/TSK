@@ -45,7 +45,7 @@ include '../../templates/header.php'; ?>
 
                                 <div class="form-group">
                                     <label for="place">Contact No</label>
-                                    <input type="text" class="form-control" name="contactNo"
+                                    <input type="text" class="form-control" name="conNo"
                                            placeholder="Enter new contact No">
                                 </div>
 
