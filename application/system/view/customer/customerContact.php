@@ -34,7 +34,7 @@ include '../../templates/header.php'; ?>
                         <h3 class="box-title"> Add Question</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="../../controller/customerProfileController.php" method="post">
+                    <form action="../../controller/contactController.php" method="post">
                         <div class="box-danger">
                             <div class="box-body">
                                 <div class="form-group">

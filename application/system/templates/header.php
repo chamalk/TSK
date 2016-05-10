@@ -1,14 +1,14 @@
 <?php
 include_once '../../model/dataAccess/userModel.php';
 session_start();
-$userID='C001';
+$userID=$_SESSION["id"];
 ?>
 
 <header class="main-header">
   <!-- Logo -->
   <a href="Reg_student.php" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>P</b>MA</span>
+    <span class="logo-mini"><b>T</b>SK</span>
     <!-- logo for regular state and mobile devices -->
     <span class="logo-lg"><b>TSK</b> Engineering</span>
   </a>

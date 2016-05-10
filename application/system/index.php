@@ -18,14 +18,14 @@
     <link rel="stylesheet" href="resources/plugins/iCheck/square/blue.css">
 
 </head>
-<body background="resources/dist/img/loginPage.jpg" >
+<body background="resources/dist/img/loginPage.jpg" style="background-size: cover;">
 <div class="login-box">
     <div class="login-logo">
         <a href="index.php"><b>TSK</b><br> Engineering</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="controller/logger.php" method="post">
+        <form action="controller/loggerCustomer.php" method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Username" name="username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -55,6 +55,7 @@
             </div>
         <?php } ?>
         <a href="#"><center>I forgot my password<center></a><br>
+        <a href="view/staffLogin.php"><center>Staff Login<center></a><br>
 
     </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
