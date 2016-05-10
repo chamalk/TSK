@@ -3,10 +3,10 @@
     <?php include '../../templates/css.php'; ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<?php include '../../templates/header.php';
+<?php include '../../templates/customerHeader.php';
 include '../../templates/customerSidebar.php';
 include '../../model/dataAccess/customerProfileModel.php' ?>
-<?php $userID = 2; ?>
+$userID=$_SESSION["id"];
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -34,7 +34,7 @@ include '../../model/dataAccess/customerProfileModel.php' ?>
                         <h3 class="box-title"> </h3>
                     </div><!-- /.box-header -->
                     <div class="box-body">
-                        <?php $detail = get_customer_details(2) ?>
+                        <?php $detail = get_customer_details($userID) ?>
                         <strong><i class="fa fa-book margin-r-5"></i>  Name</strong>
                         <p class="text-muted"><?php echo $detail[1]?></p>
 

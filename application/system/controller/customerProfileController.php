@@ -1,6 +1,7 @@
 <?php
 include_once '../model/dataAccess/customerProfileModel.php';
 include_once '../model/entity/Customer.php';
+echo "inside controller";
 
 $customer=new customer();
 
@@ -8,7 +9,7 @@ $name = $_POST["name"];
 $conNo = $_POST["conNo"];
 $address = $_POST["address"];
 $emailAddress=$_POST["email"];
-$ID = 2;
+$userID=$_SESSION["id"];
 
 echo $name ." ". $conNo;
 

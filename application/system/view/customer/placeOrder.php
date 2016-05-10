@@ -4,7 +4,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <?php
-include '../../templates/header.php';
+include '../../templates/customerHeader.php';
 include '../../templates/customerSidebar.php';
 ?>
 <?php $customerID = 1 ?>
