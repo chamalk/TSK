@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b899e78-6f52-44e2-b192-f3d77d1ed586" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/landingPage/index.html" afterPath="$PROJECT_DIR$/application/landingPage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/system/index.php" afterPath="$PROJECT_DIR$/application/system/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/system/model/dataAccess/userModel.php" afterPath="$PROJECT_DIR$/application/system/model/dataAccess/userModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/system/templates/header.php" afterPath="$PROJECT_DIR$/application/system/templates/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/system/view/customer/customerContact.php" afterPath="$PROJECT_DIR$/application/system/view/customer/customerContact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/system/view/customer/customerHome.php" afterPath="$PROJECT_DIR$/application/system/view/customer/customerHome.php" />
     </list>
     <ignored path="TSK.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,7 +47,7 @@
       <file leaf-file-name="viewCustomerProfile.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/system/view/customer/viewCustomerProfile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8530466">
+            <state vertical-scroll-proportion="0.8545781">
               <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
               <folding />
             </state>
@@ -468,7 +462,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462251987634</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Login Customer completed (All logins complete)&#10;Seperate header for customer created">
+      <created>1462867466021</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1462867466021</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -477,6 +477,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20458016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -484,7 +485,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -533,7 +533,8 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="DB Connected" />
     <MESSAGE value="Place Order Completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Place Order Completed" />
+    <MESSAGE value="Login Customer completed (All logins complete)&#10;Seperate header for customer created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Customer completed (All logins complete)&#10;Seperate header for customer created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -816,6 +817,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.030520646">
           <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -823,6 +825,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.615385">
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <marker date="1462802104437" expanded="true" signature="179:214" placeholder="SELECT name staff" />
+            <marker date="1462802104437" expanded="true" signature="758:796" placeholder="SELECT name customer" />
+            <marker date="1462802104437" expanded="true" signature="1347:1385" placeholder="SELECT * FRO... login" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -844,6 +851,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27468583">
           <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,6 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.82405746">
           <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,7 +902,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/system/view/customer/viewCustomerProfile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8530466">
+        <state vertical-scroll-proportion="0.8545781">
           <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding />
         </state>
