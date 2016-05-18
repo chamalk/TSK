@@ -58,7 +58,6 @@ include_once '../../model/dataAccess/userModel.php'
                     <li><a href="newSupervisor.php"><i class="fa fa-circle-o"></i> Add New Supervisor</a></li>
                     <li><a href="newStorekeeper.php"><i class="fa fa-circle-o"></i> Add New Storekeeper</a></li>
                     <li><a href="newDriver.php"><i class="fa fa-circle-o"></i> Add New Driver</a></li>
-                    <li><a href="newAdmin.php"><i class="fa fa-circle-o"></i> Add New Admin</a></li>
                 </ul>
 
             </li>

@@ -5,7 +5,9 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <?php include '../../templates/customerHeader.php';
 include '../../templates/customerSidebar.php';
-include '../../model/dataAccess/customerProfileModel.php' ?>
+include '../../model/dataAccess/customerProfileModel.php';
+include_once '../../model/entity/Customer.php' ?>
+
 $userID=$_SESSION["id"];
 
 <!-- Content Wrapper. Contains page content -->

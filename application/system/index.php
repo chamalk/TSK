@@ -21,7 +21,7 @@
 <body background="resources/dist/img/loginPage.jpg" style="background-size: cover;">
 <div class="login-box">
     <div class="login-logo">
-        <a href="index.php"><b>TSK</b><br> Engineering</a>
+        <a href="index.php" style="color: black"><b>TSK<br> <b>Engineering</b></a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>

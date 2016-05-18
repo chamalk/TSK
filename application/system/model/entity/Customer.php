@@ -13,6 +13,8 @@ class Customer
     private $conNo;
     private $address;
     private $emailAddress;
+    private $password;
+    private $userName;
 
 
     public function set_ID($value)
@@ -58,6 +60,24 @@ class Customer
     public function get_emailAddress()
     {
         return $this->emailAddress;
+    }
+
+    public function set_password($value)
+    {
+        $this->password=$value;
+    }
+    public function get_password()
+    {
+        return $this->password;
+    }
+
+    public function set_userName($value)
+    {
+        $this->userName=$value;
+    }
+    public function get_userName()
+    {
+        return $this->userName;
     }
 
 
