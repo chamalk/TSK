@@ -53,11 +53,8 @@ include_once '../../model/dataAccess/userModel.php'
                     <span>Add new Employer</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="newClerk.php"><i class="fa fa-circle-o"></i> Add New Clerk</a></li>
-                    <li><a href="newSalesman.php"><i class="fa fa-circle-o"></i> Add New Salesman</a></li>
-                    <li><a href="newSupervisor.php"><i class="fa fa-circle-o"></i> Add New Supervisor</a></li>
-                    <li><a href="newStorekeeper.php"><i class="fa fa-circle-o"></i> Add New Storekeeper</a></li>
-                    <li><a href="newDriver.php"><i class="fa fa-circle-o"></i> Add New Driver</a></li>
+                    <li><a href="newEmployer.php"><i class="fa fa-circle-o"></i> Add New Employer</a></li>
+                    <li><a href="newWorker.php"><i class="fa fa-circle-o"></i> Add New Worker</a></li>
                 </ul>
 
             </li>
