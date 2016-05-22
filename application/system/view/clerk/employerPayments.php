@@ -1,8 +1,8 @@
 <html>
 <head>
     <?php
-    include '../../model/data_access/PaymentModel.php';
-    include '../../model/data_access/CourseModel.php';
+    include '../../model/dataAccess/salaryPaymentModel.php';
+//    include '../../model/data_access/CourseModel.php';
     include '../../templates/css.php';
     ?>
     <script>
@@ -11,13 +11,16 @@
             if(id!=""){
                 jQuery.ajax({
                     type: "POST",
-                    url: '../../controller/PaymentController.php',
+                    url: '../../controller/salaryPaymentController.php',
                     dataType: 'json',
                     data: {s_id: id},
                     success:function (obj)  {
-                        document.getElementById("firstname").value = obj[0];
-                        document.getElementById("lastname").value = obj[1];
-                        document.getElementById("mobile").value = obj[2];
+                        document.getElementById("name").value = obj[0];
+                        document.getElementById("nic").value = obj[1];
+                        document.getElementById("contactNo").value = obj[2];
+                        document.getElementById("address").value = obj[3];
+                        document.getElementById("paymentSch").value = obj[4];
+
                         if(obj[0]==null){
                             alert("No such student ID exits");
                         }
@@ -31,7 +34,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <?php include '../../templates/header.php';
-    include '../../templates/sidebarClarical.php'
+    include '../../templates/clerkSidebar.php'
     ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -41,9 +44,9 @@
                 Record Payment
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Payments</a></li>
-                <li class="active">Register Payment</li>
+                <li><a href="clerkHome.php"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="clerkHome.php">Update Salary</a></li>
+                <li class="active">Employer Salary Update</li>
             </ol>
         </section>
 
@@ -59,19 +62,23 @@
                             <h3 class="box-title"><b>Billing Information</b></h3>
                         </div><!-- /.box-header -->
                         <!-- form start -->
-                        <form action="../../controller/PaymentRecordController.php" method="post">
+                        <form action="../../controller/salaryRecordController.php" method="post">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label>Order No</label>
-                                    <input type="text" id="order_id" name="order_id" class="form-control" value="<?php echo get_new_id();?>" readonly="readonly" placeholder="<?php echo get_new_id();?>" ><br>
-                                    <label>Student ID</label>
-                                    <input type="text"id="s_id" name="s_id"class="form-control" placeholder="Enter student id " onfocusout="autofill()" ><br>
-                                    <label>First Name</label>
-                                    <input type="text" id="firstname" name="first_name"class="form-control" placeholder="First name" disabled><br>
-                                    <label>Last Name</label>
-                                    <input type="text" id="lastname" name="last_name"class="form-control" placeholder="Last name" disabled><br>
+                                    <label>Payment No</label>
+                                    <input type="text" id="id" name="id" class="form-control" value="<?php echo get_new_id();?>" readonly="readonly" placeholder="<?php echo get_new_id();?>" ><br>
+                                    <label>Staff ID</label>
+                                    <input type="text"id="s_id" name="s_id"class="form-control" placeholder="Enter staff id " onfocusout="autofill()" ><br>
+                                    <label>Name of the Employer</label>
+                                    <input type="text" id="name" name="name"class="form-control" placeholder="Name" disabled><br>
+                                    <label>NIC Number</label>
+                                    <input type="text" id="nic" name="nic"class="form-control" placeholder="NIC" disabled><br>
                                     <label>Contact Number</label>
-                                    <input type="text"id="mobile" name="s_phone" class="form-control" placeholder="Contact number" disabled><br>
+                                    <input type="text"id="contactNo" name="contactNo" class="form-control" placeholder="Contact number" disabled><br>
+                                    <label>Address</label>
+                                    <input type="text"id="address" name="address" class="form-control" placeholder="Address" disabled><br>
+                                    <label>Payment Scheme</label>
+                                    <input type="text"id="paymentSch" name="paymentSch" class="form-control" placeholder="Payment Scheme" disabled><br>
                                 </div>
                             </div><!-- /.box-body -->
                     </div><!-- /.box -->
@@ -81,40 +88,29 @@
                 <div class="col-md-6">
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title"><b>Order Information</b></h3>
+                            <h3 class="box-title"><b>Payment Information</b></h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <div class="form-group">
-                                <label>Course</label>
+                                <label>Title</label>
                                 <div class="form-group">
-                                    <select class="form-control select2" style="width: 100%;" name="course">
-                                        <?php $ary=get_courses(); ?>
-                                        <option selected="selected"><?php echo $ary[0]; ?></option>
-                                        <?php
-                                        $x=1;
-                                        while($x<sizeof($ary)) {
-                                            ?>
-                                            <option>
-                                                <?php
-                                                echo $ary[$x]
-                                                ?>
-                                            </option>
-                                            <?php
-                                            $x++;
-                                        }
-                                        ?>
+                                    <select class="form-control select2" style="width: 100%;" name="method">
+                                        <option selected="selected">Clerk</option>
+                                        <option>Salesman</option>
+                                        <option>Supervisor</option>
+                                        <option>Storekeeper</option>
+                                        <option>Driver</option>
 
                                     </select>
                                 </div><!-- /.form-group -->
-                                <label>Amount</label>
-                                <input type="text" name="amount"class="form-control" placeholder="Enter amount"><br>
+<!--                                <label>Amount</label>-->
+<!--                                <input type="text" name="amount" class="form-control" value="--><?php //$s_id = $_POST['s_id'];
+//                                       echo get_amount($s_id);?><!--" readonly="readonly" placeholder="--><?php //echo get_amount($s_id);?><!--" ><br>-->
                                 <label>Payment Method</label>
                                 <div class="form-group">
                                     <select class="form-control select2" style="width: 100%;" name="method">
                                         <option selected="selected">Cash</option>
                                         <option>Cheque</option>
-                                        <option>Visa Card</option>
-                                        <option>Credit Card</option>
                                     </select>
                                 </div><!-- /.form-group -->
                                 <label>Month</label>

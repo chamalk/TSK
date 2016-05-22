@@ -8,7 +8,7 @@
 <?php
 include '../../templates/customerHeader.php'; ?>
 <?php include '../../templates/customerSidebar.php'; ?>
-<?php include '../../view/homePage.php'; ?>
+<?php include '../../view/customerHomePage.php'; ?>
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0
