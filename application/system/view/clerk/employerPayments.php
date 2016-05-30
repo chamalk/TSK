@@ -5,25 +5,31 @@
 //    include '../../model/data_access/CourseModel.php';
     include '../../templates/css.php';
     ?>
+    <script src="../../resources/dist/js/jquery-2.2.3.min.js"></script>
     <script>
         function autofill() {
-            var id=document.getElementById("s_id").value;
-            if(id!=""){
+            var id = $('#s_id').val();
+            if (id != "") {
                 jQuery.ajax({
                     type: "POST",
-                    url: '../../controller/salaryPaymentController.php',
-                    dataType: 'json',
-                    data: {s_id: id},
-                    success:function (obj)  {
-                        document.getElementById("name").value = obj[0];
-                        document.getElementById("nic").value = obj[1];
+                    url: 'http://localhost/TSK/application/system/controller/salaryPaymentController.php',
+                    datatype: 'json',
+                    data: {functionname: "search", s_id: "C001"},
+                    success: function (obj) {
+                        alert(obj);
+                        var abc = obj.data_list.split(",");
+                        document.getElementById("name").value = abc[0];
+                        document.getElementById("nic").value = abc[1];
                         document.getElementById("contactNo").value = obj[2];
                         document.getElementById("address").value = obj[3];
                         document.getElementById("paymentSch").value = obj[4];
-
-                        if(obj[0]==null){
+                        if (obj[0] == null) {
                             alert("No such student ID exits");
                         }
+                    },
+                    error: function (obj){
+                        alert(obj.data_list);
+                        alert('error');
                     }
                 });
             }
@@ -68,7 +74,7 @@
                                     <label>Payment No</label>
                                     <input type="text" id="id" name="id" class="form-control" value="<?php echo get_new_id();?>" readonly="readonly" placeholder="<?php echo get_new_id();?>" ><br>
                                     <label>Staff ID</label>
-                                    <input type="text"id="s_id" name="s_id"class="form-control" placeholder="Enter staff id " onfocusout="autofill()" ><br>
+                                    <input type="text" id="s_id" name="s_id" class="form-control" placeholder="Enter staff id " onfocusout="autofill()" ><br>
                                     <label>Name of the Employer</label>
                                     <input type="text" id="name" name="name"class="form-control" placeholder="Name" disabled><br>
                                     <label>NIC Number</label>
@@ -143,6 +149,7 @@
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
 </div><!-- ./wrapper -->
+
 <?php include '../../templates/js.php'; ?>
 </body>
 ii</html>

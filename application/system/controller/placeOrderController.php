@@ -6,10 +6,9 @@ $order=new Order();
 
 $directions = $_POST["directions"];
 $address = $_POST["address"];
-$customerID = 2;
-$ID = 1;
-
-echo $directions ." ". $address ." ".$customerID ." ". $ID;
+session_start();
+$customerID = $_SESSION["id"];
+$ID = 2;
 
 $order->set_directions($directions);
 $order->set_address($address) ;
