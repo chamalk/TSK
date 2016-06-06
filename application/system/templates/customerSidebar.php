@@ -1,5 +1,6 @@
 <?php
-include_once '../../model/dataAccess/userModel.php'
+include_once '../../model/dataAccess/userModel.php';
+
 ?>
 
 <!-- Left side column. contains the logo and sidebar -->

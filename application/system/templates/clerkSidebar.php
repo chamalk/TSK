@@ -1,5 +1,7 @@
 <?php
-include_once '../../model/dataAccess/userModel.php'
+include_once '../../model/dataAccess/userModel.php';
+//session_start();
+$userID=$_SESSION["id"];
 ?>
 
 <!-- Left side column. contains the logo and sidebar -->
@@ -12,7 +14,7 @@ include_once '../../model/dataAccess/userModel.php'
                 <img src="../../resources/dist/img/user.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?php echo "Use namme"?></p>
+                <p><?php echo get_user_name($userID)?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

@@ -6,7 +6,7 @@ $userID=$_SESSION["id"];
 
 <header class="main-header">
   <!-- Logo -->
-  <a href="Reg_student.php" class="logo">
+  <a href="" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>T</b>SK</span>
     <!-- logo for regular state and mobile devices -->
