@@ -17,7 +17,25 @@ class Order
     private $salesman_ID;
     private $forwardTime;
     private $clerkID;
-
+    private $measurementDate;
+    private $height;
+    private $width;
+    private $motor;
+    private $material;
+    private $design;
+    private $measurementDetails;
+    private $status;
+    private $supervisorID;
+    private $status_session;
+    private $status_date;
+    private $status_details;
+    private $driver;
+    private $journey_date;
+    private $journey_from;
+    private $journey_to;
+    private $journey_startT;
+    private $journey_endT;
+    private $payment;
 
     public function set_ID($value)
     {
@@ -99,5 +117,179 @@ class Order
     public function get_clerkID()
     {
         return $this->clerkID;
+    }
+
+    public function set_measurementDate($value)
+    {
+        $this->measurementDate=$value;
+    }
+    public function get_measurementDate()
+    {
+        return $this->measurementDate;
+    }
+
+    public function set_height($value)
+    {
+        $this->height=$value;
+    }
+    public function get_height()
+    {
+        return $this->height;
+    }
+
+    public function set_width($value)
+    {
+        $this->width=$value;
+    }
+    public function get_width()
+    {
+        return $this->width;
+    }
+
+    public function set_motor($value)
+    {
+        $this->motor=$value;
+    }
+
+    public function get_motor()
+    {
+        return $this->motor;
+    }
+
+    public function set_material($value)
+    {
+        $this->material=$value;
+    }
+    public function get_material()
+    {
+        return $this->material;
+    }
+
+    public function set_design($value)
+    {
+        $this->design=$value;
+    }
+    public function get_design()
+    {
+        return $this->design;
+    }
+
+    public function set_measurementDetails($value)
+    {
+        $this->measurementDetails=$value;
+    }
+    public function get_measurementDetails()
+    {
+        return $this->measurementDetails;
+    }
+
+    public function set_status($value)
+    {
+        $this->status=$value;
+    }
+    public function get_status()
+    {
+        return $this->status;
+    }
+
+    public function set_supervisorID($value)
+    {
+        $this->supervisorID=$value;
+    }
+    public function get_supervisorID()
+    {
+        return $this->supervisorID;
+    }
+
+    public function set_status_session($value)
+    {
+        $this->status_session=$value;
+    }
+    public function get_status_session()
+    {
+        return $this->status_session;
+    }
+
+    public function set_status_date($value)
+    {
+        $this->status_date=$value;
+    }
+
+    public function get_status_date()
+    {
+        return $this->status_date;
+    }
+
+    public function set_status_details($value)
+    {
+        $this->status_details=$value;
+    }
+    public function get_status_details()
+    {
+        return $this->status_details;
+    }
+
+    public function set_driver($value)
+    {
+        $this->driver=$value;
+    }
+    public function get_driver()
+    {
+        return $this->driver;
+    }
+
+    public function set_journey_date($value)
+    {
+        $this->journey_date=$value;
+    }
+    public function get_journey_date()
+    {
+        return $this->journey_date;
+    }
+
+    public function set_journey_from($value)
+    {
+        $this->journey_from=$value;
+    }
+    public function get_journey_from()
+    {
+        return $this->journey_from;
+    }
+
+    public function set_journey_to($value)
+    {
+        $this->journey_to=$value;
+    }
+
+    public function get_journey_to()
+    {
+        return $this->journey_to;
+    }
+
+    public function set_journey_startT($value)
+    {
+        $this->journey_startT=$value;
+    }
+    public function get_journey_startT()
+    {
+        return $this->journey_startT;
+    }
+
+    public function set_journey_endT($value)
+    {
+        $this->journey_endT=$value;
+    }
+    public function get_journey_endT()
+    {
+        return $this->journey_endT;
+    }
+
+    public function set_payment($value)
+    {
+        $this->payment=$value;
+    }
+    public function get_payment()
+    {
+        return $this->payment;
     }
 }

@@ -47,7 +47,7 @@ include '../../templates/header.php'; ?>
                                     <select class="form-control" name="category">
                                         <option selected="selected" >Clerk</option>
                                         <option>Salesman</option>
-                                        <option>Supervisor.</option>
+                                        <option>Supervisor</option>
                                         <option>Storekeeper</option>
                                         <option>Driver</option>
                                     </select>

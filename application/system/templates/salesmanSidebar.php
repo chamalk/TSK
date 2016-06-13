@@ -27,14 +27,14 @@
             </li>
 
             <li>
-                <a href="orderListSalesman.php">
-                    <i class="fa fa-th"></i> <span> My Orders</span>
+                <a href="orderList.php">
+                    <i class="fa fa-th"></i> <span> My new Orders</span>
                 </a>
             </li>
 
             <li>
-                <a href="orderListSalesman.php">
-                    <i class="fa fa-th"></i> <span> Add Measurements</span>
+                <a href="orderHistory.php">
+                    <i class="fa fa-th"></i> <span> Completed orders</span>
                 </a>
             </li>
 

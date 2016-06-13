@@ -17,5 +17,5 @@ $order->set_clerkID($clerkID);
 
 allocateSalesman($order);
 
-//header('Location: ../view/clerk/clerkHome.php' . "?" . "error=0");
+header('Location: ../view/clerk/clerkHome.php' . "?" . "error=0");
 ?>

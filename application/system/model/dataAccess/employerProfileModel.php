@@ -62,7 +62,6 @@ function insert_employer_details($employer)
     $stmt1->bind_param("sssss", $name,$conNo,$address,$ID,$nic);
     $result1=$stmt1->execute() ;
 
-echo $username.' '.$password.' '.$ID;
     //Insert login details
     $stmt2 = $db_conn->prepare("INSERT INTO login (userName,password,staff_ID) VALUES (?, ?, ?)");
     $stmt2->bind_param("sss", $username,$password,$ID);

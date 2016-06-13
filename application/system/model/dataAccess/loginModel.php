@@ -40,7 +40,10 @@ function login_check($user_name,$password)
         }elseif(is_workshop($staff_ID))
         {
             return "W";
-        }else
+        }elseif(is_driver($staff_ID))
+        {
+            return "D";
+        }elseif(is_admin($staff_ID))
             return "A";
         }
 
@@ -120,7 +123,61 @@ function is_clerk($staff_id)
 function is_salesman($staff_id)
 {
     $db_conn=DBConnection::get_database_connection(); // get the db connection
-    $stmt = $db_conn->prepare("SELECT * FROM salesman where id = ?");
+    $stmt = $db_conn->prepare("SELECT * FROM salesman where staff_ID = ?");
+    $stmt->bind_param("s", $staff_id);
+    // execute the query
+    $stmt->execute() ;
+    if(!($result= $stmt->get_result()))
+    {
+        echo "Error " . $stmt->error;
+    }
+    if($result->num_rows==0)
+    {
+        return false;
+    }
+    return true;
+}
+
+function is_workshop($staff_id)
+{
+    $db_conn=DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT * FROM supervisor where staff_ID = ?");
+    $stmt->bind_param("s", $staff_id);
+    // execute the query
+    $stmt->execute() ;
+    if(!($result= $stmt->get_result()))
+    {
+        echo "Error " . $stmt->error;
+    }
+    if($result->num_rows==0)
+    {
+        return false;
+    }
+    return true;
+}
+
+function is_driver($staff_id)
+{
+    $db_conn=DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT * FROM driver where staff_ID = ?");
+    $stmt->bind_param("s", $staff_id);
+    // execute the query
+    $stmt->execute() ;
+    if(!($result= $stmt->get_result()))
+    {
+        echo "Error " . $stmt->error;
+    }
+    if($result->num_rows==0)
+    {
+        return false;
+    }
+    return true;
+}
+
+function is_admin($staff_id)
+{
+    $db_conn=DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT * FROM admin where staff_ID = ?");
     $stmt->bind_param("s", $staff_id);
     // execute the query
     $stmt->execute() ;

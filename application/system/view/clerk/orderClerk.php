@@ -50,7 +50,7 @@ include '../../model/dataAccess/customerProfileModel.php';
     <?php $customerID = $_GET['c_id']; ?>
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Student Progress
+        <h1>Order details
             <small></small>
         </h1>
         <ol class="breadcrumb">

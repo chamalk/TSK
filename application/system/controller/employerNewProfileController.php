@@ -41,7 +41,7 @@ elseif($category == "Admin")
     $employer = new Admin();
 }
 
-else
+elseif($category == "Driver")
 {
     $employer = new Driver();
 }
