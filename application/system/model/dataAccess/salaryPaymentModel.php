@@ -172,4 +172,23 @@ function get_payment_id_list()
     return null;
 }
 
+function add_salary_method($staff)
+{
+    $db_conn=DBConnection::get_database_connection(); // get the db connection
+
+    $type = $staff->get_salary_type();
+    $staffID = $staff->get_ID();
+    $amount = $staff->get_salary_amount();
+
+    $stmt = $db_conn->prepare("INSERT INTO salarymethod (amount,type,staff_ID) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss",$amount,$type,$staffID);
+    if(!$stmt->execute())
+    {
+        echo $stmt->error;
+        return false;
+    }
+    $stmt->close();
+    DBConnection::close_database_connection($db_conn);
+}
+
 ?>

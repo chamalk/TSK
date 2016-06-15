@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="orderList.php">
+                <a href="orderListSalesman.php">
                     <i class="fa fa-th"></i> <span> My new Orders</span>
                 </a>
             </li>

@@ -53,7 +53,7 @@ include '../../templates/newAccountHeader.php'; ?>
 
                                 <div class="form-group">
                                     <label for="place"> Email</label>
-                                    <input type="text" class="form-control" name="email" placeholder="Enter your email address">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter your email address">
                                 </div>
 
                                 <div class="form-group">

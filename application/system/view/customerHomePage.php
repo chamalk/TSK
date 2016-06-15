@@ -16,56 +16,7 @@ include_once '../../model/dataAccess/HomeModel.php'
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-3 col-xs-6">-->
-<!--                <!-- small box --> -->
-<!--                <div class="small-box bg-aqua">-->
-<!--                    <div class="inner">-->
-<!--                        <!--                        <h3>-->--><?php ////echo "get_student_count()" ?><!--<!--</h3>-->-->
-<!--                        <p>On going Orders</p>-->
-<!--                    </div>-->
-<!--                    <div class="icon">-->
-<!--                        <i class="ion ion-bag"></i>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div><!-- ./col -->-->
-<!--            <div class="col-lg-3 col-xs-6">-->
-<!--                <!-- small box -->-->
-<!--                <div class="small-box bg-green">-->
-<!--                    <div class="inner">-->
-<!--                        <!--                        <h3>-->--><?php ////echo "get_courses_count()" ?><!--<!--</h3>-->-->
-<!--                        <p>Completed Orders</p>-->
-<!--                    </div>-->
-<!--                    <div class="icon">-->
-<!--                        <i class="ion ion-stats-bars"></i>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div><!-- ./col -->-->
-<!--            <div class="col-lg-3 col-xs-6">-->
-<!--                <!-- small box -->-->
-<!--                <div class="small-box bg-yellow">-->
-<!--                    <div class="inner">-->
-<!--                        <!--                        <h3>-->--><?php ////echo "get_teacher_count()" ?><!--<!--</h3>-->-->
-<!--                        <p>Staff</p>-->
-<!--                    </div>-->
-<!--                    <div class="icon">-->
-<!--                        <i class="ion ion-person-add"></i>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div><!-- ./col -->-->
-<!--            <div class="col-lg-3 col-xs-6">-->
-<!--                <!-- small box -->-->
-<!--                <div class="small-box bg-red">-->
-<!--                    <div class="inner">-->
-<!--                        <!--                        <h3>-->--><?php ////echo "get_staff_count()" ?><!--<!--</h3>-->-->
-<!--                        <p>Workers</p>-->
-<!--                    </div>-->
-<!--                    <div class="icon">-->
-<!--                        <i class="ion ion-pie-graph"></i>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div><!-- ./col -->-->
-<!--        </div><!-- /.row --><br><br>-->
+
         <div class="col-md-6">
             <div class="box box-solid">
                 <div class="box-body">

@@ -15,6 +15,8 @@ class Staff
     private $nic;
     private $password;
     private $userName;
+    private $salary_type;
+    private $salary_amount;
 
     public function set_ID($value)
     {
@@ -84,6 +86,26 @@ class Staff
     public function get_userName()
     {
         return $this->userName;
+    }
+
+    public function set_salary_type($value)
+    {
+        $this->salary_type = $value;
+    }
+
+    public function get_salary_type()
+    {
+        return $this->salary_type;
+    }
+
+    public function set_salary_amount($value)
+    {
+        $this->salary_amount = $value;
+    }
+
+    public function get_salary_amount()
+    {
+        return $this->salary_amount;
     }
 }
 ?>

@@ -13,7 +13,7 @@ include_once '../../model/dataAccess/userModel.php';
                 <img src="../../resources/dist/img/user.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?php echo "User name" ?></p>
+                <p><?php echo get_customer_name($userID) ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>

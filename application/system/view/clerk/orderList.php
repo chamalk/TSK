@@ -13,7 +13,9 @@ include '../../model/dataAccess/orderModel.php';
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>New Order List<small></small></h1>
+        <h1>New Order List
+            <small></small>
+        </h1>
         <ol class="breadcrumb">
             <li><a href="clerkHome.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="orderList.php"><i class="fa fa-dashboard"></i> New Order List</a></li>
@@ -32,13 +34,18 @@ include '../../model/dataAccess/orderModel.php';
                         <div class="box-body">
                             <div class="list-group" id="order_list">
                                 <?php
-                                foreach(get_order_list() as $block) {
-                                    list($orderID, $customerID, $name) = explode(" ", $block); ?>
-                                    <a href="orderClerk.php?o_id=<?php echo $orderID ?>&c_id=<?php echo $customerID ?>" class="list-group-item" id="<?= $orderID ?>">
+                                if (sizeof(get_order_list_delivery()) != 0) {
+                                    foreach (get_order_list() as $block) {
+                                        list($orderID, $customerID, $name) = explode(" ", $block); ?>
+                                        <a href="orderClerk.php?o_id=<?php echo $orderID ?>&c_id=<?php echo $customerID ?>"
+                                           class="list-group-item" id="<?= $orderID ?>">
                                         <span class="badge">Order ID: <?= $orderID ?> Customer ID: <?= $customerID ?>
                                         </span><?= $name ?>
-                                    </a>
-                                <?php }
+                                        </a>
+                                    <?php }
+                                } else {
+                                    echo "No new orders";
+                                }
                                 ?>
                             </div>
                         </div><!-- /.box-body -->
@@ -76,14 +83,14 @@ include '../../model/dataAccess/orderModel.php';
     });
 </script>
 <script type="text/javascript">
-    $("document").ready(function() {
-        function get_orders(){
+    $("document").ready(function () {
+        function get_orders() {
             //alert('test');
             var order_array = <?php echo json_encode(get_order_list()); ?>;
             //var course_array = JSON.parse(service);
             var index;
             var ul = document.getElementById("order_list");
-            for (index=0; index<order_array.length; index++){
+            for (index = 0; index < order_array.length; index++) {
                 var li = document.createElement("li");
                 li.appendChild(document.createTextNode(order_array[index]));
                 ul.appendChild(li);

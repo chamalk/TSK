@@ -35,7 +35,9 @@ function get_order_list()
 {
     $db_conn = DBConnection::get_database_connection(); // get the db connection
     $sql = "SELECT orderc.ID,orderc.customer_ID,customer.name
-    FROM orderc LEFT OUTER JOIN customer ON orderc.customer_ID=customer.ID WHERE complete = 0";
+    FROM (orderc LEFT OUTER JOIN customer ON orderc.customer_ID=customer.ID )
+        LEFT OUTER JOIN drivercomplete ON orderc.ID=drivercomplete.order_ID
+          WHERE isnull(drivercomplete.timeStamp)";
 
     if (!($result = $db_conn->query($sql))) {
         echo "Error " . $db_conn->error;
@@ -146,10 +148,7 @@ function get_salesman_allocation($orderID)
             $out = 2;
         }
         return $out;
-    }
-
-    else
-    {
+    } else {
         $out = 0;
         return $out;
     }
@@ -170,7 +169,7 @@ function forward_workshop($orderID)
 function get_customer_register_date($id)
 {
     $db_conn = DBConnection::get_database_connection(); // get the db connection
-    $stmt = $db_conn->prepare("SELECT * FROM login where staff_id = ?");
+    $stmt = $db_conn->prepare("SELECT * FROM customerlogin where customer_id = ?");
     $stmt->bind_param("s", $id);
     // execute the query
     $stmt->execute();
@@ -180,7 +179,7 @@ function get_customer_register_date($id)
     }
     if ($result->num_rows != 0) {
         $row = $result->fetch_assoc();
-        $reg_date = $row["regester_date"];
+        $reg_date = $row["registerDate"];
         return $reg_date;
     }
     $stmt->close();
@@ -191,7 +190,10 @@ function get_customer_register_date($id)
 function get_order_list_salesman($userID)
 {
     $db_conn = DBConnection::get_database_connection(); // get the db connection
-    $sql = "SELECT orderclerk.order_ID,orderclerk.order_customerID,customer.name  FROM orderclerk LEFT OUTER JOIN customer ON orderclerk.order_customerID=customer.ID WHERE orderclerk.forwardTime = '0000-00-00 00:00:00'";
+    $sql = "SELECT orderclerk.order_ID,orderclerk.order_customerID,customer.name
+      FROM (orderclerk JOIN customer ON orderclerk.order_customerID=customer.ID)
+        LEFT OUTER JOIN measurements ON orderclerk.order_ID=measurements.order_ID
+          WHERE isnull(measurements.date)";
 
     if (!($result = $db_conn->query($sql))) {
         echo "Error " . $db_conn->error;
@@ -232,10 +234,7 @@ function get_order_confirmation($orderID)
             $out = 0;
         }
         return $out;
-    }
-
-    else
-    {
+    } else {
         $out = 0;
         return $out;
     }
@@ -296,12 +295,13 @@ function addMeasurements($order)
     $customer_ID = $order->get_customer_ID();
     $order_ID = $order->get_ID();
     $salesman_ID = $order->get_salesman_ID();
+    $price = $order->get_price();
 
     $stmt = $db_conn->prepare("INSERT INTO measurements
-    (height,width,motor,material,design,more_details,order_customer_ID,order_ID,salesman_staff_ID)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("iissssiis", $height, $width, $motor, $material, $design, $details, $customer_ID, $order_ID, $salesman_ID);
-
+    (date,height,width,motor,material,design,more_details,order_customer_ID,order_ID,salesman_staff_ID,price)
+    VALUES (CURRENT_TIMESTAMP,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iissssiisi", $height, $width, $motor, $material, $design, $details, $customer_ID,
+        $order_ID, $salesman_ID, $price);
 
     // execute the query
     $stmt->execute();
@@ -357,7 +357,7 @@ function addStatus($order)
     $order_ID = $order->get_ID();
     $supervisor_ID = $order->get_supervisorID();
 
-    $date1 = str_replace("/","-",$fdate);
+    $date1 = str_replace("/", "-", $fdate);
     $date = date('Y-m-d', strtotime($date1));
 
     $stmt = $db_conn->prepare("INSERT INTO status
@@ -384,7 +384,7 @@ function sup_complete_order($order)
     $stmt = $db_conn->prepare("INSERT INTO supcomplete
     (supervisor_staff_ID,order_ID,customer_ID,timeStamp)
     VALUES (?, ?, ?, CURRENT_TIMESTAMP)");
-    $stmt->bind_param("sii", $supervisor_ID, $orderID, $customerID );
+    $stmt->bind_param("sii", $supervisor_ID, $orderID, $customerID);
 
     // execute the query
     $stmt->execute();
@@ -431,7 +431,7 @@ function journey_order($order)
     $order_ID = $order->get_ID();
     $driver_ID = $order->get_driver();
 
-    $date1 = str_replace("/","-",$fdate);
+    $date1 = str_replace("/", "-", $fdate);
     $journey_date = date('Y-m-d', strtotime($date1));
 
     $stmt = $db_conn->prepare("INSERT INTO journey
@@ -456,11 +456,6 @@ function driver_complete_order($order)
     $driver_ID = $order->get_driver();
     $payment = $order->get_payment();
 
-    echo $orderID;
-    echo $customerID;
-    echo $driver_ID;
-    echo $payment;
-
     $stmt = $db_conn->prepare("INSERT INTO drivercomplete
     (driver_staff_ID,order_ID,customer_ID,finalPayment,timeStamp)
     VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)");
@@ -472,4 +467,173 @@ function driver_complete_order($order)
 
     DBConnection::close_database_connection($db_conn);
 }
+
+function get_staff_list()
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+    $sql = "SELECT ID FROM staff";
+
+    if (!($result = $db_conn->query($sql))) {
+        echo "Error " . $db_conn->error;
+    }
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        $staffList = array();
+        $cnt = 0;
+        while ($row = $result->fetch_assoc()) {
+            $staffList[$cnt] = $row["ID"];
+            $cnt++;
+        }
+        return $staffList;
+    }
+}
+
+function get_complete_order_list()
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+
+    $sql = "SELECT drivercomplete.order_ID,drivercomplete.customer_ID,customer.name
+    FROM (drivercomplete JOIN customer ON drivercomplete.customer_ID=customer.ID)
+    WHERE drivercomplete.timeStamp > 0";
+
+    if (!($result = $db_conn->query($sql))) {
+        echo "Error " . $db_conn->error;
+    }
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        $orderList = array();
+        $cnt = 0;
+        while ($row = $result->fetch_assoc()) {
+            $orderList[$cnt] = $row["order_ID"] . " " . $row["customer_ID"] . " " . $row["name"];
+            $cnt++;
+        }
+        return $orderList;
+    }
+}
+
+function get_ongoing_order_list()
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+
+    $sql = "SELECT orderc.ID,orderc.customer_ID,customer.name
+    FROM (orderc JOIN customer ON orderc.customer_ID=customer.ID)
+      LEFT OUTER JOIN drivercomplete ON orderc.ID = drivercomplete.order_ID
+    WHERE isnull(drivercomplete.timeStamp)";
+
+    if (!($result = $db_conn->query($sql))) {
+        echo "Error " . $db_conn->error;
+    }
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        $orderList = array();
+        $cnt = 0;
+        while ($row = $result->fetch_assoc()) {
+            $orderList[$cnt] = $row["ID"] . " " . $row["customer_ID"] . " " . $row["name"];
+            $cnt++;
+        }
+        return $orderList;
+    }
+}
+
+function get_salesman_details($id)
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT orderclerk.salesmanID,orderclerk.salesmanallocateTime,staff.name
+      FROM orderclerk LEFT OUTER JOIN staff ON orderclerk.salesmanID = staff.ID WHERE orderclerk.order_ID = ?");
+    $stmt->bind_param("i", $id);
+    // execute the query
+    $stmt->execute();
+    if (!($result = $stmt->get_result())) {
+        echo "Error " . $stmt->error;
+    }
+    if ($result->num_rows > 0) {
+        $salesmanProfile = array();
+        $row = $result->fetch_assoc();
+        $salesmanProfile[0] = $row["salesmanID"];
+        $salesmanProfile[1] = $row["name"];
+        $salesmanProfile[2] = $row["salesmanallocateTime"];
+        return $salesmanProfile;
+    }
+    $stmt->close();
+    DBConnection::close_database_connection($db_conn);
+    return null;
+}
+
+function get_forward_details($id)
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT orderclerk.clerk_staff_ID,orderclerk.forwardTime,staff.name
+      FROM orderclerk LEFT OUTER JOIN staff ON orderclerk.clerk_staff_ID = staff.ID WHERE orderclerk.order_ID = ?");
+    $stmt->bind_param("i", $id);
+    // execute the query
+    $stmt->execute();
+    if (!($result = $stmt->get_result())) {
+        echo "Error " . $stmt->error;
+    }
+    if ($result->num_rows > 0) {
+        $salesmanProfile = array();
+        $row = $result->fetch_assoc();
+        $salesmanProfile[0] = $row["clerk_staff_ID"];
+        $salesmanProfile[1] = $row["name"];
+        $salesmanProfile[2] = $row["forwardTime"];
+        return $salesmanProfile;
+    }
+    $stmt->close();
+    DBConnection::close_database_connection($db_conn);
+    return null;
+}
+
+function get_measurements_details($id)
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+    $stmt = $db_conn->prepare("SELECT height,width,motor,material,design,more_details
+      FROM measurements WHERE order_ID = ?");
+    $stmt->bind_param("i", $id);
+    // execute the query
+    $stmt->execute();
+    if (!($result = $stmt->get_result())) {
+        echo "Error " . $stmt->error;
+    }
+    if ($result->num_rows > 0) {
+        $salesmanProfile = array();
+        $row = $result->fetch_assoc();
+        $measurements[0] = $row["height"];
+        $measurements[1] = $row["width"];
+        $measurements[2] = $row["motor"];
+        $measurements[3] = $row["material"];
+        $measurements[4] = $row["design"];
+        $measurements[5] = $row["more_details"];
+        return $measurements;
+    }
+    $stmt->close();
+    DBConnection::close_database_connection($db_conn);
+    return null;
+}
+
+function get_order_status($orderID)
+{
+    $db_conn = DBConnection::get_database_connection(); // get the db connection
+    $sql = "SELECT date,session,status FROM status WHERE order_ID = $orderID";
+
+    if (!($result = $db_conn->query($sql))) {
+        echo "Error " . $db_conn->error;
+    }
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        $status = array();
+        $cnt = 0;
+        while ($row = $result->fetch_assoc()) {
+            $statusO = $row["status"];
+            $status_ = str_replace(' ', '_', $statusO);
+            $status[$cnt] = $row["date"] . " " . $row["session"] . " " . $status_;
+            $cnt++;
+        }
+        return $status;
+    }
+}
+
 ?>

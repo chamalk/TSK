@@ -6,16 +6,16 @@ include_once 'DBConnection.php';
 function login_check($user_name,$password)
 {
     $db_conn=DBConnection::get_database_connection(); // get the db connection
+
     $stmt = $db_conn->prepare("SELECT * FROM login where userName = ? AND password = ?");// prepare
     $stmt->bind_param("ss", $user_name,$password);
     // execute the query
     $stmt->execute() ;
     /*  Naming convention:
-        Customer-CU
+        Customer-C
         Clerk-C
         Salesman-S
         Workshop-W
-        StoreKeeper-SK
         Admin-A
         Driver-D */
 

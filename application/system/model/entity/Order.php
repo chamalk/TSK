@@ -36,6 +36,7 @@ class Order
     private $journey_startT;
     private $journey_endT;
     private $payment;
+    private $price;
 
     public function set_ID($value)
     {
@@ -44,6 +45,15 @@ class Order
     public function get_ID()
     {
         return $this->ID;
+    }
+
+    public function set_price($value)
+    {
+        $this->price=$value;
+    }
+    public function get_price()
+    {
+        return $this->price;
     }
 
     public function set_customer_ID($value)
