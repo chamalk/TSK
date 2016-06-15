@@ -35,29 +35,30 @@ include '../../templates/customerHeader.php'; ?>
                         <h3 class="box-title"> Add Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="../../controller/customerProfileController.php" method="post">
+                    <form action="../../controller/customerProfileController.php" data-toggle="validator" method="post">
                         <div class="box-danger">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="place"> Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter new name">
+                                    <input type="text" class="form-control" name="name" required pattern="[a-zA-Z ]+"
+                                           placeholder="Enter new name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place">Contact No</label>
-                                    <input type="text" class="form-control" name="conNo"
+                                    <input type="text" class="form-control" name="conNo" required pattern="0[0-9]{9}"
                                            placeholder="Enter new contact No">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Hame Address</label>
-                                    <input type="text" class="form-control" name="address"
+                                    <input type="text" class="form-control" name="address" required
                                            placeholder="Enter new home address">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Email</label>
-                                    <input type="text" class="form-control" name="email" placeholder="Enter new email">
+                                    <input type="email" class="form-control" name="email" placeholder="Enter new email">
                                 </div>
 
                                 <div class="box-footer">

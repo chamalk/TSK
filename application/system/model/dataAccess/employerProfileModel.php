@@ -4,7 +4,7 @@ include_once 'DBConnection.php';
 function get_employer_details($id)
 {
     $db_conn=DBConnection::get_database_connection(); // get the db connection
-    $stmt = $db_conn->prepare("SELECT * FROM customer where id = ?");
+    $stmt = $db_conn->prepare("SELECT * FROM staff where id = ?");
     $stmt->bind_param("s", $id);
     // execute the query
     $stmt->execute() ;
@@ -18,9 +18,9 @@ function get_employer_details($id)
         $row = $result->fetch_assoc();
         $customerProfile[0] = $row["ID"];
         $customerProfile[1] = $row["name"];
-        $customerProfile[2] = $row["conNo"];
-        $customerProfile[3] = $row["address"];
-        $customerProfile[4] = $row["emailAddress"];
+        $customerProfile[2] = $row["contactNo"];
+        $customerProfile[3] = $row["NIC"];
+        $customerProfile[4] = $row["address"];
         return $customerProfile;
     }
     $stmt->close();

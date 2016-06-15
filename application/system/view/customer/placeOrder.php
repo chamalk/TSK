@@ -43,11 +43,13 @@ include '../../templates/customerSidebar.php';
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="place"> Address of the location</label>
-                                    <input type="text" class="form-control" name="address" placeholder="Enter new name">
+                                    <input type="text" class="form-control" name="address" required
+                                           placeholder="Enter new name">
                                 </div>
                                 <div class="form-group">
                                     <label for="place"> Directions to the location</label>
-                                    <input type="text" class="form-control" name="directions" placeholder="Enter new name">
+                                    <input type="text" class="form-control" name="directions" required
+                                           placeholder="Enter new name">
                                 </div>
                             </div>
                             <div class="box-footer">

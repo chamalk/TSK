@@ -39,5 +39,7 @@
     <script src="../../resources/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../resources/dist/js/demo.js"></script>
+    <!-- Validate purposes -->
+    <script src="../../resources/bootstrap/js/validator.js"></script>
 
 	

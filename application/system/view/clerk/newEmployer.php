@@ -4,7 +4,8 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <?php
-include '../../templates/header.php'; ?>
+include '../../templates/header.php';
+?>
 <?php include '../../templates/clerkSidebar.php'; ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -34,12 +35,12 @@ include '../../templates/header.php'; ?>
                         <h3 class="box-title"> Add Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="../../controller/employerNewProfileController.php" method="post">
+                    <form action="../../controller/employerNewProfileController.php" data-toggle="validator" method="post">
                         <div class="box-danger">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="place"> Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter your name">
+                                    <input type="text" class="form-control" name="name" required pattern="[a-zA-Z ]+" placeholder="Enter your name">
                                 </div>
 
                                 <div class="form-group">

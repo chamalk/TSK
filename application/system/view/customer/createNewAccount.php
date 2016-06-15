@@ -31,44 +31,50 @@ include '../../templates/newAccountHeader.php'; ?>
                         <h3 class="box-title"> Add Details</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    <form action="../../controller/customerNewProfileController.php" method="post">
+                    <form action="../../controller/customerNewProfileController.php" data-toggle="validator"
+                          method="post">
                         <div class="box-danger">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="place"> Name</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter your name">
+                                    <input type="text" class="form-control" name="name" required pattern="[a-zA-Z ]+"
+                                        placeholder=" Enter your name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place">Contact No</label>
-                                    <input type="text" class="form-control" name="conNo"
+                                    <input type="text" class="form-control" name="conNo" required pattern="0[0-9]{9}"
                                            placeholder="Enter your contact No">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Hame Address</label>
-                                    <input type="text" class="form-control" name="address"
+                                    <input type="text" class="form-control" name="address" required
                                            placeholder="Enter your home address">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Enter your email address">
+                                    <input type="email" class="form-control" name="email" required
+                                           placeholder="Enter your email address">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> User Name</label>
-                                    <input type="text" class="form-control" name="uname" placeholder="Enter the User Name">
+                                    <input type="text" class="form-control" name="uname" pattern="[a-zA-Z ]+" required
+                                           placeholder="Enter the User Name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Password</label>
-                                    <input type="text" class="form-control" id='password' name="password" placeholder="Enter the password">
+                                    <input type="password" maxlength="25" class="form-control" id='password' name="password" required
+                                           placeholder="Enter the password">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Re Enter the Password</label>
-                                    <input type="text" class="form-control" id='rpassword' name="rpassword" placeholder=" Re Enter the password">
+                                    <input type="password" maxlength="25" class="form-control" id='rpassword' name="rpassword" required
+                                           placeholder=" Re Enter the password">
                                 </div>
 
                                 <div class="box-footer">

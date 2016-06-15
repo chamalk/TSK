@@ -14,13 +14,13 @@ include '../../templates/customerHeader.php'; ?>
         if (isset($_GET["error"])) {
             echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
         } ?>
-        <h1>Edit My Profile
+        <h1>Change My Password
             <small></small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="customerHome.php"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="viewCustomerProfile.php"> My Profile </a></li>
-            <li><a href="editCustomerProfile.php"> Edit My Profile </a></li>
+            <li><a href="customerPasswordReset.php"> Change My password </a></li>
         </ol>
     </section>
     <!-- Main content -->
@@ -31,7 +31,7 @@ include '../../templates/customerHeader.php'; ?>
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"> Add Details</h3>
+                        <h3 class="box-title"></h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <form action="../../controller/customerPasswordController.php" method="post">
@@ -39,17 +39,20 @@ include '../../templates/customerHeader.php'; ?>
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="place"> Current Password</label>
-                                    <input type="text" class="form-control" name="cpassword" placeholder="Enter the current password">
+                                    <input type="password" maxlength="25" class="form-control" name="cpassword" required
+                                           placeholder="Enter the current password">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> New Password</label>
-                                    <input type="text" class="form-control" name="npassword" placeholder="Enter new password">
+                                    <input type="password" maxlength="25" class="form-control" name="npassword" required
+                                           placeholder="Enter new password">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="place"> Re Enter New Password</label>
-                                    <input type="text" class="form-control" name="rpassword" placeholder="Repert new password">
+                                    <input type="password" maxlength="25" class="form-control" name="rpassword" required
+                                           placeholder="Repert new password">
                                 </div>
 
                                 <div class="box-footer">
